@@ -1,0 +1,51 @@
+This is BibTeX, Version 0.99d (TeX Live 2013/Debian)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: project-grasshoppers.aux
+The style file: apalike.bst
+Database file #1: project-grasshoppers.bib
+Warning--to sort, need author or key in DORSA
+Warning--to sort, need author or key in orthoapp
+Warning--empty year in DORSA
+Warning--empty year in orthoapp
+You've used 3 entries,
+            1935 wiz_defined-function locations,
+            482 strings with 3998 characters,
+and the built_in function-call counts, 665 in all, are:
+= -- 72
+> -- 7
+< -- 1
++ -- 2
+- -- 2
+* -- 41
+:= -- 118
+add.period$ -- 8
+call.type$ -- 3
+change.case$ -- 16
+chr.to.int$ -- 3
+cite$ -- 9
+duplicate$ -- 30
+empty$ -- 52
+format.name$ -- 3
+if$ -- 128
+int.to.chr$ -- 1
+int.to.str$ -- 0
+missing$ -- 0
+newline$ -- 17
+num.names$ -- 3
+pop$ -- 14
+preamble$ -- 1
+purify$ -- 16
+quote$ -- 0
+skip$ -- 22
+stack$ -- 0
+substring$ -- 38
+swap$ -- 0
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 18
+warning$ -- 4
+while$ -- 2
+width$ -- 0
+write$ -- 34
+(There were 4 warnings)

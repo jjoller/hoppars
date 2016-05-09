@@ -1,0 +1,77 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[paper=a4, fontsize=11pt]{scrartcl} 
+\usepackage[left=3cm,right=2.5cm,top=2.5cm,bottom=3.5cm]{geometry}
+\usepackage{graphicx}
+\usepackage{url}
+\usepackage{enumitem}
+
+\setlength\parindent{0pt} 
+\newcommand{\horrule}[1]{\rule{\linewidth}{#1}} 
+\pagestyle{empty}
+\begin{document}
+\includegraphics[height=1.0cm]{lascropped}%
+\hfill%
+\raisebox{0.2cm}{\includegraphics[height=0.6cm]{ethcropped}}
+{
+\centering
+\normalfont \normalsize 
+\horrule{0.5pt} \\[0.2cm] 
+\huge Automated recording system to monitor grasshopper abundance in natural environments
+\\[0.3cm]
+\normalfont \normalsize 
+\textsc{Project Proposal for Master Thesis}
+\horrule{2pt} \\[0.6cm] 
+%\\[0.6cm]
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\vspace{-10mm}
+\section*{Motivating Applications}
+%\vspace{-3mm}
+On-going climate change induces shifts in the distribution of species along latitude and elevation gradients, while land-use intensification is degrading the quality of habitats for biodiversity. Global changes are thus largely threatening existing semi-natural ecosystems. Monitoring data are required to design management strategies and limit the negative effects of global change on biodiversity. While automated measurement of abiotic components of landscapes are common (e.g. through meteorological stations) devices that automatically measure the biotic components of the landscape are almost inexistent.
+Automated Recording Systems (ARS) applied to continuous recording and detection of a group of species that are good bioindicators of ecosystem health would represent an advance for landscape management. The recent miniaturisation of many sensors, many of them being integrated in smartphones, would allow developing this technology. Here, we propose a novel ARS method to monitor automatically composition of orthoptera from sound and use this information for ecosystem monitoring.
+
+As a second goal, we will implement the algorithm in an existing smartphone application as a tool to promote citizen science and knowledge transfer.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\vspace{-4mm}
+\section*{Scope of the Project}
+
+In a first step our goal is to develop an algorithm that outperforms the algorithm developed by William Ducret, described in his Bachelor Thesis\cite{2015-ducret}. In a second step the algorithm should be improved to be robust against noise, such as human voices, cars, or bird chants. The algorithm should reliably detect grasshopper sound from smartphone recordings that are taken in a natural environment. The challenge is to find enough data to train such an algorithm. The DORSA database\cite{DORSA} might be helpful. The algorithm should be able to reliably classify at least the populations which are common in Switzerland. We have to evaluate if it makes sense to develop an algorithm which makes use of prior information, such as the location of the phone that is recording the sound.
+
+In a third step, the algorithm will be integrated into a smartphone application. It has to be evaluated if we will build an application from the ground or if we will extend the existing Orthoptera-App\cite{orthoapp}. The goal of the app is to build a tool for crowd-sourcing the data gathering about grasshopper propagation. 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\vspace{-4mm}
+\section*{Milestones}
+%\vspace{-3mm}
+
+\begin{itemize}
+	\item Find and mine suitable datasets to train the algorithm (2 weeks)
+  	\item Develop the algorithm that outperforms the Ducret algorithm on a preprocessed dataset(3 weeks)
+	\item Develop a robust version of the algorithm and test it against different datasets (7 weeks)
+  	\item Implement the smartphone application (10 weeks)
+  	\item Written thesis (4 weeks)
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\clearpage
+\vspace{-4mm}
+{
+%\fontsize{11pt}{9pt}
+\fontsize{10.5pt}{8pt}
+\selectfont
+\bibliographystyle{apalike}
+\bibliography{project-grasshoppers}
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{document}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%IMAGE Source
+%https://commons.wikimedia.org/wiki/File:Gradient_descent.svg
