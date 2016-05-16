@@ -1,14 +1,16 @@
-
 base_dir = 'william.26.01.2016/data/enregistrements_6/';
 files = species_files(base_dir);
 size(files)
 
-framelength = 1000;
-num_frames = 100;
+n = 255;
 
 correct = 0;
+total = 0;
 
 % perform one-vs-all cross validation
+
+U = linear_basis_train(files,n);
+
 for i=1:size(files,1)
     truelabel = i;
     for j=1:size(files,2)
@@ -16,29 +18,15 @@ for i=1:size(files,1)
         % the test file
         to_predict = files{i,j};
     
-        % train the model on all but one file
-        maxscore = -Inf;
-        lable = -1;
-        for label = 1:size(files,1)
-            
-            % do not train on the test file
-            x = concatenate_audio(files(i,:), to_predict);
-            
-            size(x)
-            
-            f = frames(x,framelength,num_frames);
-            score = convolution_score(to_predict,f)
-            if score > maxscore
-                maxscore = score;
-                predictedlabel = label;
-            end
-        end
+        fprintf('classify %s\n',to_predict);
+        predictedlabel = linear_basis_classify(to_predict,U);
+        fprintf('predicted label: %d, true label: %d\n',predictedlabel,truelabel);
         
-        if predictedlabel == truelabel
-            correct = correct+1;
-        end
-    end  
-    
+        hit = predictedlabel == truelabel;
+        correct = correct + hit;
+        total = total + 1;
+    end
 end
-
+correct
+total
 
