@@ -11,8 +11,7 @@ dirsNumber = length(data_dirs);
 species = cell(dirsNumber,6);
 
 for d = 1:dirsNumber
-    
-    speciesName = strrep(data_dirs{d},'data_',''); % TODO use to put "class" labels to the features
+    speciesName = strrep(data_dirs{d},'data_','');
     
     data_dir = fullfile(base_dir, data_dirs{d});
     % get the filename within the directory

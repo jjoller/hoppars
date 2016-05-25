@@ -1,15 +1,22 @@
 import csv
 import os
-import urllib
+import urllib.request
+import urllib.parse
+import urllib.error
 import re
 
-with open('../dorsa/multimedia.csv', 'rb') as mediafile:
+
+'''
+Download sound files from the DORSA https://www.dorsa.de/ repository
+'''
+
+with open('../dorsa/multimedia.csv', 'r') as mediafile:
     csvreader = csv.DictReader(mediafile, delimiter='	')
     audiodict = {}
     for row in csvreader:
         if "sound" in row['references']:
             audiodict[row['gbifID']] = row['references']
-    with open('../dorsa/verbatim.csv', 'rb') as csvfile:
+    with open('../dorsa/verbatim.csv', 'r') as csvfile:
         csvreader = csv.DictReader(csvfile, delimiter='	')
         data = {}
         count = 0
