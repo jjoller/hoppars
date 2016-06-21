@@ -4,11 +4,25 @@ import urllib.request
 import urllib.parse
 import urllib.error
 import re
+import wave
 
 
 '''
 Download sound files from the DORSA https://www.dorsa.de/ repository
 '''
+
+def download(filepath, soundurl):
+    # download the file
+    while True:
+        try:
+            print(("download " + soundurl))
+            f = urllib.request.urlopen(soundurl)
+            with open(filepath, "wb") as soundfile:
+                soundfile.write(f.read())
+        except urllib.URLError:
+            print("No internet connection, try again...")
+        else:
+            break
 
 with open('../dorsa/multimedia.csv', 'r') as mediafile:
     csvreader = csv.DictReader(mediafile, delimiter='	')
@@ -26,7 +40,7 @@ with open('../dorsa/multimedia.csv', 'r') as mediafile:
                 if not name in data:
                     data[name] = []
                 data[name].append(audiodict[row['gbifID']])
-                count = count + 1
+                count += 1
         print(("species: ", len(data), " count: ", count))
 
         # download the data
@@ -46,10 +60,12 @@ with open('../dorsa/multimedia.csv', 'r') as mediafile:
 
                 # check if the file has already been downloaded
                 if not os.path.exists(path):
-                    # download the file
-                    print(("download " + soundurl))
-                    f = urllib.request.urlopen(soundurl)
-                    with open(path, "wb") as soundfile:
-                        soundfile.write(f.read())
+                    download(path,soundurl)
                 else:
-                    print(("the file " + soundurl + " already exists"))
+                    try:
+                        str(wave.open(path, 'r').getframerate())
+                        #print("the file " + soundurl + " already exists, framerate is " + str(wave.open(path,'r').getframerate()))
+                    except:
+                        print("file " + path + " is corrupt")
+                        download(path, soundurl)
+
